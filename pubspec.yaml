@@ -19,6 +19,7 @@ dependencies:
   image_cropper: ^3.0.0
   story: ^0.8.0
   reels_viewer: ^1.0.0+1
+  shared_preferences: ^2.0.15
   just_audio: ^0.9.30
   cupertino_icons: ^1.0.2
 

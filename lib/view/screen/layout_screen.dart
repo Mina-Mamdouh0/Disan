@@ -35,18 +35,25 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
     Icons.videogame_asset_sharp,
   ];
 
-  final List<Widget> screenList=const [
-    HomeScreen(),
-    ChatScreen(),
+  final List<Widget> screenList= [
+    const HomeScreen(),
+    const ChatScreen(),
     NotificationsScreen(),
-    GamesScreen(),
+    const GamesScreen(),
+  ];
+
+  final List<String> nameList= [
+     'Home',
+     'Chat',
+     'Notifications',
+     'Games',
   ];
 
   final List<Color> colorsList=[
     Constant.primaryColor,
-    Colors.deepOrange,
-    Colors.purpleAccent,
-    Colors.teal
+    Colors.greenAccent,
+    Colors.pink,
+    Colors.deepOrange
   ];
 
   @override
@@ -94,7 +101,7 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
                   }),
                 ],
               ),
-              title: const Text('Disan',style: TextStyle(color: Colors.black),),
+              title:  Text(nameList[cubit.currentIndexNav],style: const TextStyle(color: Colors.black),),
               centerTitle: true,
               actions: [
                 IconButton(

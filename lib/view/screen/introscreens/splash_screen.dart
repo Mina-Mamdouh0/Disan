@@ -1,7 +1,17 @@
 
 
 
+import 'dart:async';
+
+import 'package:disan/const.dart';
+import 'package:disan/view/screen/authscreens/login_screen.dart';
+import 'package:disan/view/screen/layout_screen.dart';
+import 'package:disan/view/screen/mainscreens/homescreens/home_screen.dart';
+import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'onboarding_screens.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,15 +25,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-   /* Timer(
-        Duration(seconds: 2),
+    Timer(
+        const Duration(seconds: 2),
             () async{
           SharedPreferences preferences=await SharedPreferences.getInstance();
           preferences.getBool('isShow')??false ?
-          Get.offAll(HomeLayout(
-          )):Get.offAll(OnBoarding());
+          navigatorAndRemove(context: context, widget:LoginScreen()):navigatorAndRemove(context: context, widget:OnBoardingPage());
         }
-    );*/
+    );
   }
 
   @override
@@ -36,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
             width: 500,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/image/logo.png'))),
+                    image: AssetImage(Constant.kLogo))),
           ),
         )
     );

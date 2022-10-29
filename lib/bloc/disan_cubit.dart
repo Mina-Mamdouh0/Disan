@@ -15,6 +15,39 @@ class DisanCubit extends Cubit<DisanState>{
     currentIndexNav=index;
     emit(ChangeIndexNav());
   }
+  //login && sign up && reset password
+  bool obscureText=true;
+  bool obscurePassword=true;
+  bool obscureConPassword=true;
+  bool obscureResetPassword=true;
+  bool obscureConResetPassword=true;
+  void visiblePassword(){
+    obscureText=!obscureText;
+    emit(VisiblePasswordLogin());
+  }
+  void visibleSignUpPassword(){
+    obscurePassword=!obscurePassword;
+    emit(VisiblePasswordSignUp());
+  }
+  void visibleSignConPassword(){
+    obscureConPassword=!obscureConPassword;
+    emit(VisibleConPasswordSignUp());
+  }
+  void visibleResetPassword(){
+    obscureResetPassword=!obscureResetPassword;
+    emit(VisibleResetPassword());
+  }
+  void visibleResetConPassword(){
+    obscureConResetPassword=!obscureConResetPassword;
+    emit(VisibleResetConPassword());
+  }
+  //Remember Me
+bool checkRemember=false;
+  void changeRemember(bool val){
+    checkRemember=val;
+    emit(CheckRememberLogin());
+  }
+
 
 
 }

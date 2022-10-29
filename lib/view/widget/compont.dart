@@ -1,5 +1,6 @@
 
 
+import 'package:disan/const.dart';
 import 'package:flutter/material.dart';
 
 Widget textButton({
@@ -26,17 +27,19 @@ navigatorPush({
   Navigator.push(context,MaterialPageRoute(builder: (context)=>widget),);
 }
 
-Widget mainButton({
+Widget authButton({
   required Function() fct,
   required String text,
-  required double height,
 }){
   return MaterialButton(
     onPressed: fct,
     minWidth: double.infinity,
-    color: Colors.blue,
+    color: Constant.primaryColor,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20)
+    ),
     textColor: Colors.white,
-    height: height,
+    height: 50,
     child:   Text(text,style: const TextStyle(
         fontSize: 20
     ),),
@@ -73,7 +76,7 @@ Widget useTextButton({
 
 }){
   return TextButton(onPressed: onPress,
-      child: Text(name.toUpperCase(),style:const TextStyle(fontSize: 16)));
+      child: Text(name.toUpperCase(),style:const TextStyle(fontSize: 16,color: Constant.primaryColor)));
 
 }
 
@@ -102,8 +105,12 @@ Widget defaultTextFiled({
       ),
       contentPadding:const  EdgeInsets.all(20),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5.0),
-        borderSide: const BorderSide(color: Colors.blue,width: 5),
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(color: Constant.primaryColor,width: 1),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(color: Colors.red,width: 1),
       ),
     ),
     validator: validator,
