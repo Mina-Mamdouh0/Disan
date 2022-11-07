@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:disan/view/screen/mainscreens/homescreens/story_view.dart';
 import 'package:disan/view/screen/mainscreens/real_screen.dart';
+import 'package:disan/view/screen/profile_user_screen.dart';
 import 'package:disan/view/widget/my_container.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
@@ -23,11 +24,16 @@ class TimeLine extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CircleAvatar(
-                      backgroundImage: const NetworkImage(
-                        "https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/301824890_3307009669568935_8884583819678523389_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=AX6BmW3W3xEAX9ubmyA&_nc_ht=scontent.fcai20-2.fna&oh=00_AT9JlVvtt1Zj-GIHpITIezlAG2Y0bYiYnYcyvyG7BqbKUA&oe=635E35F4",
+                    InkWell(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfileUserScreen()));
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: const NetworkImage(
+                          "https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/301824890_3307009669568935_8884583819678523389_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=AX6BmW3W3xEAX9ubmyA&_nc_ht=scontent.fcai20-2.fna&oh=00_AT9JlVvtt1Zj-GIHpITIezlAG2Y0bYiYnYcyvyG7BqbKUA&oe=635E35F4",
+                        ),
+                        radius: size.width * .07,
                       ),
-                      radius: size.width * .07,
                     ),
                     Container(
                       height: size.height * 0.07,

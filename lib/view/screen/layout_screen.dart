@@ -29,17 +29,17 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
   final autoSizeGroup = AutoSizeGroup();
 
   final List<IconData> iconList = [
-    Icons.home,
-    Icons.chat_rounded,
+    FontAwesomeIcons.home,
+    FontAwesomeIcons.whatsapp,
     Icons.notifications,
-    Icons.videogame_asset_sharp,
+    FontAwesomeIcons.gamepad,
   ];
 
   final List<Widget> screenList= [
     const HomeScreen(),
-    const ChatScreen(),
+     ChatScreen(),
     NotificationsScreen(),
-    const GamesScreen(),
+    GamesScreen(),
   ];
 
   final List<String> nameList= [
@@ -80,27 +80,12 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
       builder: (context, state){
         var cubit=DisanCubit.get(context);
         return Scaffold(
-            appBar:cubit.currentIndexNav==0?null: AppBar(
-              backgroundColor: Colors.white,
-              leadingWidth: 200,
-              leading: Row(
-                children:  [
-                  const Icon(Icons.language,color: Colors.black,size: 25),
-                  const SizedBox(width: 10),
-                  IconButton(icon:  AnimatedIcon(icon:AnimatedIcons.pause_play,color: Colors.black,size: 25, progress: context.read<DisanCubit>().controller, ),onPressed: () async {
-                    if(context.read<DisanCubit>().isPlaying){
-                      context.read<DisanCubit>().controller.forward();
-                      context.read<DisanCubit>().isPlaying=false;
-                      context.read<DisanCubit>().player1.stop();
-                    }else{
-                      context.read<DisanCubit>(). controller.reverse();
-                      context.read<DisanCubit>(). isPlaying=true;
-                      context.read<DisanCubit>(). player1.play();
-                    }
-
-                  }),
-                ],
-              ),
+          extendBody: true,
+          backgroundColor: Colors.white,
+            appBar:cubit.currentIndexNav==0?null:
+            AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
               title:  Text(nameList[cubit.currentIndexNav],style: const TextStyle(color: Colors.black),),
               centerTitle: true,
               actions: [
@@ -114,9 +99,10 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
             body: screenList[cubit.currentIndexNav],
             floatingActionButton: FloatingActionButton(
               elevation: 8,
+              backgroundColor: Colors.transparent,
               child: const CircleAvatar(
                 radius: 200,
-                backgroundColor: Colors.indigoAccent,
+                backgroundColor: Constant.primaryColor,
                 child: Center(child: Icon(FontAwesomeIcons.video,color: Colors.white,)),
               ),
               onPressed: () {
@@ -156,10 +142,11 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
               activeIndex: cubit.currentIndexNav,
               splashColor: Colors.blueAccent[700],
               splashSpeedInMilliseconds: 300,
+              height: 55,
               notchSmoothness: NotchSmoothness.defaultEdge,
               gapLocation: GapLocation.center,
-              leftCornerRadius: 32,
-              rightCornerRadius: 32,
+              leftCornerRadius: 0,
+              rightCornerRadius: 0,
               onTap: (index) => cubit.changeIndexNav(index),
             ));
       },

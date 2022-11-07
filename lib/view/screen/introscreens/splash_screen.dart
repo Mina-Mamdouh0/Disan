@@ -5,8 +5,6 @@ import 'dart:async';
 
 import 'package:disan/const.dart';
 import 'package:disan/view/screen/authscreens/login_screen.dart';
-import 'package:disan/view/screen/layout_screen.dart';
-import 'package:disan/view/screen/mainscreens/homescreens/home_screen.dart';
 import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,13 +18,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final Duration initialDelay = Duration(seconds: 1);
 
   @override
   void initState() {
     super.initState();
     Timer(
-        const Duration(seconds: 2),
+        const Duration(seconds: 1),
             () async{
           SharedPreferences preferences=await SharedPreferences.getInstance();
           preferences.getBool('isShow')??false ?
@@ -41,8 +38,8 @@ class _SplashScreenState extends State<SplashScreen> {
         backgroundColor:Colors.white,
         body: Center(
           child: Container(
-            height: 500,
-            width: 500,
+            height: 200,
+            width: 200,
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(Constant.kLogo))),

@@ -1,6 +1,7 @@
 
 
 import 'package:disan/bloc/disan_state.dart';
+import 'package:disan/view/screen/mainscreens/homescreens/shop_screen.dart';
 import 'package:disan/view/screen/mainscreens/homescreens/time_lines.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body:  const Center(
           child: TabBarView(
             children: [
-              Text('shop'),
+              ShopScreen(),
               TimeLine()
             ],
           ),

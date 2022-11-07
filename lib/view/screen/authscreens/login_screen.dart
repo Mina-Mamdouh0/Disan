@@ -28,173 +28,208 @@ class LoginScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
+                      height: double.infinity,
                       width: double.infinity,
-                      alignment: Alignment.topCenter,
-                      height: MediaQuery.of(context).size.height*0.5,
                       decoration: const BoxDecoration(
-                        color: Constant.primaryColor,
-                        borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(12),
-                          bottomLeft: Radius.circular(12),
-                        ),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/image/background.jpg',)
+                        )
                       ),
-
-                      child: Image.asset(Constant.kLogo,
-                      width: 180,
-                      height: 180),
                     ),
                     Align(
-                      alignment: Alignment.center,
-                      child: Card(
-                        margin:  EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 10,
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Form(
-                              key: formKey,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const SizedBox(height: 15,),
-                                  defaultTextFiled(
-                                    controller: emailController,
-                                    inputType: TextInputType.emailAddress,
-                                    labelText: 'Email Address',
-                                    validator: (value){
-                                      if(value!.isEmpty){
-                                        return 'Please Enter The Correct The Email';
-                                      }
-                                    },
-                                    prefixIcon: Icons.person,
-                                  ),
-                                  const SizedBox(height: 15,),
-                                  defaultTextFiled(
-                                      controller: passwordController,
-                                      inputType: TextInputType.visiblePassword,
-                                      labelText: 'Password',
-                                      validator: (value){
-                                        if(value!.isEmpty){
-                                          return 'Please Password is Shorted';
-                                        }
-                                      },
-                                      prefixIcon: Icons.lock,
-                                      suffixIcon: cubit.obscureText?Icons.visibility:Icons.visibility_off,
-                                      fctSuffixIcon: ()=>cubit.visiblePassword(),
-                                      obscureText: cubit.obscureText
-                                  ),
-                                  const SizedBox(height: 10,),
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                        value: cubit.checkRemember,
-                                        onChanged: (value){
-                                          cubit.changeRemember(value!);
-                                        },
-                                      ),
-                                      const SizedBox(width: 10,),
-                                      const  Text('Remember Me',
-                                          style: TextStyle(
-                                            color: Constant.primaryColor,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.normal,
-                                          )),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                     child:
-                                     useTextButton(name: 'Forget Password',
-                                         onPress: (){
-                                       navigatorPush(context: context, widget: ForgetPasswordScreen());
-                                         }),
-                                  ),
-                                  const SizedBox(height: 15,),
-                                  authButton(fct: (){
-    if(formKey.currentState!.validate()){
-    navigatorAndRemove(context: context, widget: HomeLayout());
-                                  }},
-                                      text: 'Login'),
-                                  const SizedBox(height: 10,),
-                                  Row(
-                                    children:  [
-                                       Expanded(
-                                        child: Divider(
-                                          color:Colors.grey.shade600,
-                                          thickness: 2,
-                                        ),
-                                      ),
-                                       const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text('OR',
-                                        style: TextStyle(
-                                          color: Colors.grey.shade600,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                       const SizedBox(
-                                        width: 5,
-                                      ),
-                                       Expanded(
-                                        child: Divider(
-                                          color:Colors.grey.shade600,
-                                          thickness: 2,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 10,),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {},
-                                        child: const Icon(FontAwesomeIcons.facebook,color: Constant.primaryColor,size: 30),
-                                      ),
-                                      const SizedBox(
-                                        width: 30
-                                      ),
-                                      InkWell(
-                                        onTap: () {},
-                                        child: Image.asset(
-                                          "assets/image/google.png",
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 5,),
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: useTextButton(name: 'Skip',
-                                        onPress: (){
-                                          navigatorAndRemove(context: context, widget: HomeLayout());
-                                        }),
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Text('Don\'t have a account?',
-                                        style: TextStyle(fontSize: 16,
-                                          color: Constant.primaryColor
-                                        ),),
-                                      useTextButton(name: 'Register',
-                                          onPress: (){
-                                        navigatorAndRemove(context: context, widget: SignUpScreen());
-                                          }),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height*0.6,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
                           ),
                         ),
                       ),
-                    )
+                    ),
+
+                    Align(
+                      alignment: Alignment.center,
+                      child: SingleChildScrollView(
+                        child: SizedBox(
+                          height: 650,
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Card(
+                                margin:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05),
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                elevation: 10,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: Form(
+                                    key: formKey,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const SizedBox(height: 20,),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            InkWell(
+                                              onTap: () {},
+                                              child: const Icon(FontAwesomeIcons.facebook,color: Constant.primaryColor,size: 40),
+                                            ),
+                                            const SizedBox(
+                                                width: 30
+                                            ),
+                                            InkWell(
+                                              onTap: () {},
+                                              child: Image.asset(
+                                                "assets/image/google.png",
+                                                height: 40,width: 40,
+                                                fit: BoxFit.fill,
+
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 5,),
+                                        Row(
+                                          children:  [
+                                            Expanded(
+                                              child: Divider(
+                                                color:Colors.grey.shade600,
+                                                thickness: 2,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text('OR',
+                                              style: TextStyle(
+                                                color: Colors.grey.shade600,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 5,
+                                            ),
+                                            Expanded(
+                                              child: Divider(
+                                                color:Colors.grey.shade600,
+                                                thickness: 2,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 8,),
+                                        defaultTextFiled(
+                                          controller: emailController,
+                                          inputType: TextInputType.emailAddress,
+                                          labelText: 'Email Address',
+                                          validator: (value){
+                                            if(value!.isEmpty){
+                                              return 'Please Enter The Correct The Email';
+                                            }
+                                          },
+                                          prefixIcon: Icons.person,
+                                        ),
+                                        const SizedBox(height: 15,),
+                                        defaultTextFiled(
+                                            controller: passwordController,
+                                            inputType: TextInputType.visiblePassword,
+                                            labelText: 'Password',
+                                            validator: (value){
+                                              if(value!.isEmpty){
+                                                return 'Please Password is Shorted';
+                                              }
+                                            },
+                                            prefixIcon: Icons.lock,
+                                            suffixIcon: cubit.obscureText?Icons.visibility:Icons.visibility_off,
+                                            fctSuffixIcon: ()=>cubit.visiblePassword(),
+                                            obscureText: cubit.obscureText
+                                        ),
+                                        const SizedBox(height: 10,),
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              value: cubit.checkRemember,
+                                              onChanged: (value){
+                                                cubit.changeRemember(value!);
+                                              },
+                                            ),
+                                            const SizedBox(width: 10,),
+                                            const  Text('Remember Me',
+                                                style: TextStyle(
+                                                  color: Constant.primaryColor,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.normal,
+                                                )),
+                                          ],
+                                        ),
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                           child:
+                                           useTextButton(name: 'Forget Password',
+                                               color: const Color(0XFFFF1616),
+                                               onPress: (){
+                                             navigatorPush(context: context, widget: ForgetPasswordScreen());
+                                               }),
+                                        ),
+                                        const SizedBox(height: 5,),
+                                        authButton(fct: (){
+    if(formKey.currentState!.validate()){
+    navigatorAndRemove(context: context, widget: HomeLayout());
+                                        }},
+                                            text: 'Login'),
+                                        const SizedBox(height: 5,),
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: useTextButton(name: 'Skip',
+                                              color: const Color(0XFFFF1616),
+                                              size: 20,
+                                              onPress: (){
+                                                navigatorAndRemove(context: context, widget: HomeLayout());
+                                              }),
+                                        ),
+                                        Row(
+                                          children: [
+                                            const Text('Don\'t have a account?',
+                                              style: TextStyle(fontSize: 16,
+                                                color:  Color(0XFFFF1616),
+                                              ),),
+                                            useTextButton(name: 'Register',
+                                                onPress: (){
+                                              navigatorAndRemove(context: context, widget: SignUpScreen());
+                                                }),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const Align(
+                                alignment: Alignment.topCenter,
+                                child:  CircleAvatar(
+                                  radius: 47,
+                                  backgroundColor: Colors.white,
+                                  child: CircleAvatar(
+                                    radius: 40.0,
+                                    backgroundColor: Colors.white,
+                                    backgroundImage: AssetImage(Constant.kLogo),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               )

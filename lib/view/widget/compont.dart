@@ -73,10 +73,12 @@ PreferredSizeWidget mainAppBar({
 Widget useTextButton({
   required String name,
   required Function() onPress,
+  Color? color,
+  double? size
 
 }){
   return TextButton(onPressed: onPress,
-      child: Text(name.toUpperCase(),style:const TextStyle(fontSize: 16,color: Constant.primaryColor)));
+      child: Text(name.toUpperCase(),style: TextStyle(fontSize:size?? 16,color:color?? Constant.primaryColor)));
 
 }
 
@@ -90,9 +92,11 @@ Widget defaultTextFiled({
   IconData? suffixIcon,
   Function()? fctSuffixIcon,
   bool? obscureText,
+  int? maxLine,
 }){
   return  TextFormField(
     keyboardType:inputType ,
+    maxLines: maxLine??1,
     obscureText: obscureText??false,
     controller: controller,
     decoration: InputDecoration(

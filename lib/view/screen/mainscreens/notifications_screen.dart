@@ -1,4 +1,6 @@
+import 'package:disan/const.dart';
 import 'package:disan/view/widget/natifiaction_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsScreen extends StatelessWidget {
@@ -41,24 +43,80 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: notifications.length,
-            itemBuilder: (context, index) {
-              return Column(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+               height: 100,
+              child: Row(
                 children: [
-                  NotifiactionItem(
-                    title: notifications[index]['title'].toString(),
-                    subTitle: notifications[index]['subTitle'].toString(),
-                    subject: notifications[index]['subject'].toString(),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Constant.primaryColor,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text('Your Orders',
+                            textAlign: TextAlign.center,
+                            style:
+                        TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18
+                        )),
+                      ),
+                    ),
                   ),
-                  const Divider(thickness: 1),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text('Rating',
+                            textAlign: TextAlign.center,style:
+                        TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18
+                        )),
+                      ),
+                    ),
+                  ),
                 ],
-              );
-            }),
+              ),
+            ),
+            const SizedBox(height: 5,),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: notifications.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        NotifiactionItem(
+                          title: notifications[index]['title'].toString(),
+                          subTitle: notifications[index]['subTitle'].toString(),
+                          subject: notifications[index]['subject'].toString(),
+                        ),
+                        const Divider(thickness: 1),
+                      ],
+                    );
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }

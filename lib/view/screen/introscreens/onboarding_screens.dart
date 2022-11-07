@@ -1,4 +1,5 @@
 import 'package:disan/const.dart';
+import 'package:disan/view/screen/authscreens/login_screen.dart';
 import 'package:disan/view/screen/layout_screen.dart';
 import 'package:disan/view/screen/mainscreens/homescreens/home_screen.dart';
 import 'package:disan/view/widget/compont.dart';
@@ -19,7 +20,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   void _onIntroEnd(context) async{
     SharedPreferences preferences=await SharedPreferences.getInstance();
     preferences.setBool('isShow',true);
-    navigatorAndRemove(context: context, widget:  HomeLayout());
+    navigatorAndRemove(context: context, widget:  LoginScreen());
   }
 
 
