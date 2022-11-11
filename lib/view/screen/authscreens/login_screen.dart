@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   var formKey=GlobalKey<FormState>();
@@ -135,6 +136,7 @@ class LoginScreen extends StatelessWidget {
                                             if(value!.isEmpty){
                                               return 'Please Enter The Correct The Email';
                                             }
+                                            return null;
                                           },
                                           prefixIcon: Icons.person,
                                         ),
@@ -147,6 +149,7 @@ class LoginScreen extends StatelessWidget {
                                               if(value!.isEmpty){
                                                 return 'Please Password is Shorted';
                                               }
+                                              return null;
                                             },
                                             prefixIcon: Icons.lock,
                                             suffixIcon: cubit.obscureText?Icons.visibility:Icons.visibility_off,

@@ -1,8 +1,6 @@
 import 'package:disan/bloc/disan_state.dart';
-import 'package:disan/view/widget/sheredHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class DisanCubit extends Cubit<DisanState>{
   DisanCubit():super(InitialState());

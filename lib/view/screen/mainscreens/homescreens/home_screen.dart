@@ -1,13 +1,10 @@
 
-
 import 'package:disan/bloc/disan_state.dart';
 import 'package:disan/view/screen/mainscreens/homescreens/shop_screen.dart';
 import 'package:disan/view/screen/mainscreens/homescreens/time_lines.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../bloc/disan_cubit.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

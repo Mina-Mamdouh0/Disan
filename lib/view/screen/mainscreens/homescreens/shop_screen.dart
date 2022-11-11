@@ -7,6 +7,8 @@ import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../order_screen.dart';
+
 class ShopScreen extends StatelessWidget {
   const ShopScreen({Key? key}) : super(key: key);
 
@@ -398,7 +400,8 @@ class ShopScreen extends StatelessWidget {
                     )),
                 const SizedBox(width: 100,),
                 ElevatedButton(
-                    onPressed: (){},
+                    onPressed: (){                      navigatorPush(context: context, widget: Orders());
+                    },
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),

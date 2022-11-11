@@ -1,6 +1,8 @@
 
 
 
+// ignore_for_file: must_be_immutable
+
 import 'package:disan/bloc/disan_cubit.dart';
 import 'package:disan/bloc/disan_state.dart';
 import 'package:disan/const.dart';
@@ -9,7 +11,6 @@ import 'package:disan/view/screen/layout_screen.dart';
 import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
@@ -23,7 +24,6 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<DisanCubit,DisanState>(
         builder: (context,state){
-          var cubit=DisanCubit.get(context);
           return Scaffold(
               body:SafeArea(
                 child: Stack(
@@ -105,6 +105,8 @@ class SignUpScreen extends StatelessWidget {
                                             if(value!.isEmpty){
                                               return 'Please Enter The Correct The name';
                                             }
+                                            return null;
+
                                           },
                                           prefixIcon: Icons.person,
                                         ),
@@ -117,6 +119,8 @@ class SignUpScreen extends StatelessWidget {
                                             if(value!.isEmpty){
                                               return 'Please Enter The Correct The Email';
                                             }
+                                            return null;
+
                                           },
                                           prefixIcon: Icons.email,
                                         ),
@@ -129,6 +133,8 @@ class SignUpScreen extends StatelessWidget {
                                               if(value!.isEmpty){
                                                 return 'Please Password is Shorted';
                                               }
+                                              return null;
+
                                             },
                                             prefixIcon: Icons.lock,
                                         ),
@@ -141,6 +147,8 @@ class SignUpScreen extends StatelessWidget {
                                               if(value!.isEmpty){
                                                 return 'Confirm Password not like the password';
                                               }
+                                              return null;
+
                                             },
                                             prefixIcon: Icons.lock,
                                         ),

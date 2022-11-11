@@ -5,11 +5,9 @@ import 'package:disan/bloc/disan_cubit.dart';
 import 'package:disan/bloc/disan_state.dart';
 import 'package:disan/const.dart';
 import 'package:disan/view/screen/authscreens/login_screen.dart';
-import 'package:disan/view/screen/layout_screen.dart';
 import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   ResetPasswordScreen({Key? key}) : super(key: key);
@@ -85,6 +83,7 @@ class ResetPasswordScreen extends StatelessWidget {
                                             if(value!.isEmpty){
                                               return 'Please Enter The Correct The Confirmation Code';
                                             }
+                                            return null;
                                           },
                                           prefixIcon: Icons.email,
                                         ),
@@ -97,6 +96,8 @@ class ResetPasswordScreen extends StatelessWidget {
                                               if(value!.isEmpty){
                                                 return 'Please Password is Shorted';
                                               }
+                                              return null;
+
                                             },
                                             prefixIcon: Icons.lock,
                                         ),
@@ -109,6 +110,8 @@ class ResetPasswordScreen extends StatelessWidget {
                                               if(value!.isEmpty){
                                                 return 'Confirm Password not like the password';
                                               }
+                                              return null;
+
                                             },
                                             prefixIcon: Icons.lock,
                                         ),

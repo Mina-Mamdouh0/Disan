@@ -1,9 +1,7 @@
-
-import 'package:disan/view/widget/profile_post.dart';
 import 'package:flutter/material.dart';
 
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
+class Orders extends StatelessWidget {
+  const Orders({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +11,7 @@ class FavoriteScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0.0,
-        title:  const Text('Favorite',style:  TextStyle(color: Colors.black),),
+        title:  const Text('Orders',style:  TextStyle(color: Colors.black),),
         centerTitle: true,
         actions: [
           IconButton(
@@ -36,11 +34,25 @@ image: DecorationImage(
           ),
         ),
         child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: 30,
-            itemBuilder: (context, index) {
-              return PostTimeLine(size: size);
-            }),
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return  Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius:  BorderRadius.circular(10.0),
+
+              ),
+              semanticContainer: true,
+              child: ListTile(
+
+                leading: const Icon(Icons.shopping_bag),
+                title: Text('Order ${index+1}'),
+                subtitle: Text('Order ${index+1}'),
+                trailing: const Icon(Icons.arrow_forward_ios),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

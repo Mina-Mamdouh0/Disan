@@ -5,7 +5,6 @@ import 'package:disan/bloc/disan_cubit.dart';
 import 'package:disan/bloc/disan_state.dart';
 import 'package:disan/const.dart';
 import 'package:disan/view/screen/authscreens/reset_password_screen.dart';
-import 'package:disan/view/screen/layout_screen.dart';
 import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +18,6 @@ class ForgetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<DisanCubit,DisanState>(
         builder: (context,state){
-          var cubit=DisanCubit.get(context);
           return Scaffold(
               body:SafeArea(
                 child: Stack(
@@ -80,6 +78,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                                             if(value!.isEmpty){
                                               return 'Please Enter The Correct The Email';
                                             }
+                                            return null;
                                           },
                                           prefixIcon: Icons.email,
                                         ),
