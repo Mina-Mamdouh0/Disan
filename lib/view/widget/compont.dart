@@ -30,11 +30,12 @@ navigatorPush({
 Widget authButton({
   required Function() fct,
   required String text,
+   Color? color,
 }){
   return MaterialButton(
     onPressed: fct,
     minWidth: double.infinity,
-    color: Constant.primaryColor,
+    color: color??Constant.primaryColor,
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20)
     ),

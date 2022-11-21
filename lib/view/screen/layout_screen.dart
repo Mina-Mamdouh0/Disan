@@ -80,10 +80,13 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
       builder: (context, state){
         var cubit=DisanCubit.get(context);
         return Scaffold(
+          //extendBodyBehindAppBar: true,
+             extendBody: true,
+             resizeToAvoidBottomInset: true,
             appBar:cubit.currentIndexNav==0?null: AppBar(
               backgroundColor: Colors.white,
               leadingWidth: 200,
-              leading: Row(
+              /*leading: Row(
                 children:  [
                   const Icon(Icons.language,color: Colors.black,size: 25),
                   const SizedBox(width: 10),
@@ -100,15 +103,15 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
 
                   }),
                 ],
-              ),
+              ),*/
               title:  Text(nameList[cubit.currentIndexNav],style: const TextStyle(color: Colors.black),),
               centerTitle: true,
-              actions: [
-                IconButton(
+              /*actions: [
+                cubit.currentIndexNav==2?IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.search,color: Colors.black,size: 25),
-                ),
-              ],
+                ):Container(),
+              ],*/
 
             ),
             body: screenList[cubit.currentIndexNav],
@@ -155,11 +158,9 @@ class _HomeLayoutState extends State<HomeLayout>with TickerProviderStateMixin {
               backgroundColor: Colors.white,
               activeIndex: cubit.currentIndexNav,
               splashColor: Colors.blueAccent[700],
-              splashSpeedInMilliseconds: 300,
-              notchSmoothness: NotchSmoothness.defaultEdge,
+              splashSpeedInMilliseconds: 0,
+              //notchSmoothness: NotchSmoothness.defaultEdge,
               gapLocation: GapLocation.center,
-              leftCornerRadius: 32,
-              rightCornerRadius: 32,
               onTap: (index) => cubit.changeIndexNav(index),
             ));
       },

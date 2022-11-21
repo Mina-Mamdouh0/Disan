@@ -2,6 +2,7 @@
 import 'package:disan/const.dart';
 import 'package:disan/view/widget/compont.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class ChatScreen extends StatefulWidget {
@@ -95,12 +96,20 @@ class _ChatScreenState extends State<ChatScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(height: 5,),
-                    const Text('Conversations are via WhatsApp',
-                      style: TextStyle(
-                        color: Constant.primaryColor,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 22,
-                      ),),
+                    Row(
+                      children: const [
+                         Expanded(
+                          child:  Text('Conversations are via WhatsApp',
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 22,
+                            ),),
+                        ),
+                        Icon(FontAwesomeIcons.whatsapp,
+                        color: Colors.greenAccent,size: 35,)
+                      ],
+                    ),
                     const SizedBox(height: 15,),
                     defaultTextFiled(
                       controller: phoneController,
@@ -120,6 +129,8 @@ class _ChatScreenState extends State<ChatScreen> {
                           isPhone=true;
                         });
                       }},
+                        color: Colors.green,
+
                         text: 'Registration Phone'),
                     const SizedBox(height: 10,),
                   ],

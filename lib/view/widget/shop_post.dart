@@ -186,7 +186,7 @@ class _PostShopTimeLineState extends State<PostShopTimeLine> {
               children: [
                 TextButton.icon(
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.yellow,
+                    backgroundColor: Colors.yellow,
                   ),
                   label: const Text("5 ratings"),
                   onPressed: () {},

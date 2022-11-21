@@ -317,6 +317,7 @@ class ShopScreen extends StatelessWidget {
                   margin: const EdgeInsets.all(5),
                   child: ListView.builder(
                       itemCount: 10,
+                      physics:const  BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context,index){
                         return Container(
@@ -400,7 +401,7 @@ class ShopScreen extends StatelessWidget {
                     )),
                 const SizedBox(width: 100,),
                 ElevatedButton(
-                    onPressed: (){                      navigatorPush(context: context, widget: Orders());
+                    onPressed: (){navigatorPush(context: context, widget: Orders());
                     },
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
